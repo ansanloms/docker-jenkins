@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - type: bind
+        source: "./jenkins_home"
+        target: "/var/jenkins_home"
+      - type: bind
+        source: "/mnt/media"
+        target: "/mnt/media"
+    extra_hosts:
+      - host.docker.internal:host-gateway
