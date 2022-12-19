@@ -14,5 +14,7 @@ services:
       - type: bind
         source: "/mnt/media"
         target: "/mnt/media"
+    environment:
+      - TZ=Asia/Tokyo
     extra_hosts:
       - host.docker.internal:host-gateway
